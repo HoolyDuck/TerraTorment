@@ -16,7 +16,7 @@ public abstract class BuffChange : ILoadable
     public void Load(Mod mod)
     {
         BuffChange instance = (BuffChange)Activator.CreateInstance(GetType());
-        HungerSystem.buffChanges.Add(instance);
+        HungerSystem.BuffChanges.Add(instance);
     }
 
     public void Unload() { }

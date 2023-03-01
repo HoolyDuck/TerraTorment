@@ -6,5 +6,5 @@ public class PoisonedDebuff : BuffChange
 {
     public override int ActiveBuffId => BuffID.Poisoned;
 
-    public override float GetHungerChange => -1f;
+    public override float GetHungerChange => 1f;
 }
