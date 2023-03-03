@@ -45,6 +45,11 @@ public class HungerPlayer : ModPlayer
             {
                 hungerChange += 1f;
             }
+
+            if (Player.itemAnimation > 0)
+            {
+                hungerChange += 0.5f;
+            }
         }
     }
 
