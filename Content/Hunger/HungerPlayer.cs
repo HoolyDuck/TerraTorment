@@ -24,14 +24,6 @@ public class HungerPlayer : ModPlayer
     {
         if (Player.whoAmI == Main.myPlayer)
         {
-            hungerDecreaseCooldown -= hungerChange;
-            if (hungerDecreaseCooldown <= 0)
-            {
-                Hunger -= 1f;
-                Main.NewText($"Current hunger: {Hunger}, hungerChange: {hungerChange}", Color.OrangeRed);
-                hungerDecreaseCooldown = (float)CooldownEnum.HUNGER_DECREASE_COOLDOWN_DEFAULT;
-            }
-
             if (Player.velocity.X != 0)
             {
                 hungerChange += 0.5f;
@@ -41,10 +33,18 @@ public class HungerPlayer : ModPlayer
             {
                 hungerChange += 1f;
             }
-
+            
             if (Player.itemAnimation > 0)
             {
                 hungerChange += 0.5f;
+            }
+            
+            hungerDecreaseCooldown -= hungerChange;
+            if (hungerDecreaseCooldown <= 0)
+            {
+                Hunger -= 1f;
+                Main.NewText($"Current hunger: {Hunger}, hungerChange: {hungerChange}", Color.OrangeRed);
+                hungerDecreaseCooldown = (float)CooldownEnum.HUNGER_DECREASE_COOLDOWN_DEFAULT;
             }
         }
     }
@@ -56,7 +56,7 @@ public class HungerPlayer : ModPlayer
 
     public override void PostUpdate()
     {
-       
     }
-    
+
+
 }
