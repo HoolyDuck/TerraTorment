@@ -1,10 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
-using TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges;
-using TerraTorment.Systems;
 using TerraTorment.Utilities.Enums;
 
 namespace TerraTorment.Content.Hunger;
