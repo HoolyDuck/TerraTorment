@@ -12,7 +12,7 @@ public class GlobalTileChanges : GlobalTile
         HungerPlayer modPlayer = Main.LocalPlayer.GetModPlayer<HungerPlayer>();
         if (modPlayer.tileMineCooldown <= 0)
         {
-            modPlayer.tileMineCooldown = 300;
+            modPlayer.tileMineCooldown = 60;
 
         }
   
