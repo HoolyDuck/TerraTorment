@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,76 +13,32 @@ public class VanillaFoodChanges : GlobalItem
         base.OnConsumeItem(item, player);
         HungerPlayer modPlayer = player.GetModPlayer<HungerPlayer>();
 
-        switch (item.type)
+        switch (item.buffType)
         {
-            case ItemID.Apple:
-            case ItemID.Banana:
-            case ItemID.Lemon:
-            case ItemID.Apricot:
-            case ItemID.BlackCurrant:
-            case ItemID.BloodOrange:
-            case ItemID.Cherry:
-            case ItemID.Coconut:
-            case ItemID.Grapefruit:
-            case ItemID.Mango:
-            case ItemID.Peach:
-            case ItemID.Pineapple:
-            case ItemID.Plum:
-            case ItemID.Elderberry:
-            case ItemID.Rambutan:
-            case ItemID.ShuckedOyster:
-            case ItemID.Marshmallow:
+            case BuffID.WellFed:
                 modPlayer.Hunger += 5f;
                 break;
-
-            case ItemID.CookedMarshmallow:
-            case ItemID.BunnyStew:
-            case ItemID.CookedFish:
-            case ItemID.FruitSalad:
-            case ItemID.GrilledSquirrel:
-            case ItemID.RoastedBird:
-            case ItemID.SauteedFrogLegs:
-            case ItemID.PotatoChips:
+            case BuffID.WellFed2:
                 modPlayer.Hunger += 10f;
                 break;
-
-            case ItemID.BowlofSoup:
-            case ItemID.Pho:
-            case ItemID.CookedShrimp:
-            case ItemID.Escargot:
-            case ItemID.FroggleBunwich:
-            case ItemID.GrubSoup:
-            case ItemID.LobsterTail:
-            case ItemID.MonsterLasagna:
-            case ItemID.RoastedDuck:
-            case ItemID.SeafoodDinner:
-            case ItemID.PumpkinPie:
-            case ItemID.Sashimi:
-            case ItemID.Starfruit:
-            case ItemID.BananaSplit:
-            case ItemID.ChickenNugget:
-            case ItemID.ChocolateChipCookie:
-            case ItemID.FriedEgg:
-            case ItemID.Fries:
-            case ItemID.Hotdog:
-            case ItemID.Grapes:
-            case ItemID.IceCream:
-            case ItemID.Nachos:
-            case ItemID.ShrimpPoBoy:
-            case ItemID.PadThai:
+            case BuffID.WellFed3:
                 modPlayer.Hunger += 15f;
                 break;
-            case ItemID.GoldenDelight:
-            case ItemID.ApplePie:
-            case ItemID.Bacon:
-            case ItemID.BBQRibs:
-            case ItemID.Burger:
-            case ItemID.Pizza:
-            case ItemID.Steak:
-            case ItemID.ChristmasPudding:
-            case ItemID.GingerbreadCookie:
-            case ItemID.SugarCookie:
-                modPlayer.Hunger += 20f;
+        }
+    }
+
+    public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+    {
+        switch (item.buffType)
+        {
+            case BuffID.WellFed:
+                tooltips.Add(new TooltipLine(Mod, "Hunger + 5", "Makes you bit less hungry"));
+                break;
+            case BuffID.WellFed2:
+                tooltips.Add(new TooltipLine(Mod, "Hunger + 10", "Makes you less hungry"));
+                break;
+            case BuffID.WellFed3:
+                tooltips.Add(new TooltipLine(Mod, "Hunger + 15", "Makes you a lot less hungry"));
                 break;
         }
     }
