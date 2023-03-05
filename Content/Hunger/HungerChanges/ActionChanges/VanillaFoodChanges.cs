@@ -16,7 +16,6 @@ public class VanillaFoodChanges : GlobalItem
         {
             case ItemID.Apple:
             case ItemID.Banana:
-            case ItemID.Grapes:
             case ItemID.Lemon:
             case ItemID.Apricot:
             case ItemID.BlackCurrant:
@@ -44,6 +43,45 @@ public class VanillaFoodChanges : GlobalItem
             case ItemID.SauteedFrogLegs:
             case ItemID.PotatoChips:
                 modPlayer.Hunger += 10f;
+                break;
+
+            case ItemID.BowlofSoup:
+            case ItemID.Pho:
+            case ItemID.CookedShrimp:
+            case ItemID.Escargot:
+            case ItemID.FroggleBunwich:
+            case ItemID.GrubSoup:
+            case ItemID.LobsterTail:
+            case ItemID.MonsterLasagna:
+            case ItemID.RoastedDuck:
+            case ItemID.SeafoodDinner:
+            case ItemID.PumpkinPie:
+            case ItemID.Sashimi:
+            case ItemID.Starfruit:
+            case ItemID.BananaSplit:
+            case ItemID.ChickenNugget:
+            case ItemID.ChocolateChipCookie:
+            case ItemID.FriedEgg:
+            case ItemID.Fries:
+            case ItemID.Hotdog:
+            case ItemID.Grapes:
+            case ItemID.IceCream:
+            case ItemID.Nachos:
+            case ItemID.ShrimpPoBoy:
+            case ItemID.PadThai:
+                modPlayer.Hunger += 15f;
+                break;
+            case ItemID.GoldenDelight:
+            case ItemID.ApplePie:
+            case ItemID.Bacon:
+            case ItemID.BBQRibs:
+            case ItemID.Burger:
+            case ItemID.Pizza:
+            case ItemID.Steak:
+            case ItemID.ChristmasPudding:
+            case ItemID.GingerbreadCookie:
+            case ItemID.SugarCookie:
+                modPlayer.Hunger += 20f;
                 break;
         }
     }
