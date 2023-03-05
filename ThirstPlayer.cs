@@ -28,6 +28,18 @@ public class ThirstPlayer : ModPlayer
                 potionThirstCooldown -= 1;
             }
             
+            //if player in desert, lose thirst faster
+            if (Player.ZoneDesert)
+            {
+                ThirstLoss += 5f;
+            }
+            
+            //if player in hell, lose thirst faster
+            if (Player.ZoneUnderworldHeight)
+            {
+                ThirstLoss += 15f;
+            }
+            
             thirstUpdateCooldown -= ThirstLoss;
             if (thirstUpdateCooldown <= 0)
             {
