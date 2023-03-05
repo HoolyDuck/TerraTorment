@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges.Debuffs;
+namespace TerraTorment.Changes.BuffChanges.Debuffs;
 
 public class WeakDebuff : BuffChange
 {

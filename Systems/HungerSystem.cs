@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Terraria.ModLoader;
-using TerraTorment.Content.Hunger.HungerChanges.ActionChanges;
-using TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges;
+using TerraTorment.Changes.BuffChanges;
 
 
 namespace TerraTorment.Systems;

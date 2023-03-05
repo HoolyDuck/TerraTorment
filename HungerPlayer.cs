@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TerraTorment.Utilities.Enums;
 
-namespace TerraTorment.Content.Hunger;
+namespace TerraTorment;
 
 public class HungerPlayer : ModPlayer
 {
@@ -54,7 +54,6 @@ public class HungerPlayer : ModPlayer
             if (hungerDecreaseCooldown <= 0)
             {
                 Hunger -= 1f;
-                Main.NewText($"Current hunger: {Hunger}, hungerChange: {hungerChange}", Color.OrangeRed);
                 hungerDecreaseCooldown = (float)CooldownEnum.HUNGER_DECREASE_COOLDOWN_DEFAULT;
             }
         }
