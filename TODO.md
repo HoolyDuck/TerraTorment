@@ -1,4 +1,4 @@
-Todo list 
+# Todo list 
 
 ## Hunger 🍖
 
@@ -16,12 +16,18 @@ Todo list
     - [ ] Slowness
     - [ ] Weakness
     - [ ] Mining fatigue (sometimes tile breaking doesn't work :)
+    - [ ] Combat fatigue (sometimes you don't deal damage)
     - [ ] Nausea 
     - [ ] Blurry vision  
     - [ ] Hunger player effects
       - [ ] Shader effects :) 
     - [ ] Hunger sound
     - [ ] Death
+- [ ] Add positive effects when full
+    - [ ] Speed
+    - [ ] Strength
+    - [ ] Mining speed
+    - [ ] Combat speed
 
 ## Thirst 💦
 
@@ -30,6 +36,7 @@ Todo list
 - [x] Add thirst drain
     - [x] For being in biomes
     - [x] For using potions
+    - [ ] For moving? (idk if this is needed)
 - [x] Add thirst regen for drink items
 - [ ] Draw and add thirst bar ui
     - [ ] Sprite
@@ -42,6 +49,8 @@ Todo list
       - [ ] Shader effects :) 
     - [ ] Death
 - [ ] Add thirst based on temperature
+- [ ] Add positive effects when not thirsty 
+
 
 ## Temperature 🌡️
 
@@ -96,8 +105,11 @@ Todo list
 
 --- 
 
-## Other
+## Other 📝
 - [ ] Add sprites 
 - [ ] Add sounds
 - [ ] Add shaders
 - [ ] Refactor code
+- [ ] Balance mechanics
+
+## Issues 🪲
