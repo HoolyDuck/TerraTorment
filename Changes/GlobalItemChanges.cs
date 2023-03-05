@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using TerraTorment.Content.Hunger;
@@ -10,9 +11,10 @@ public class GlobalItemChanges : GlobalItem
     {
         HungerPlayer modPlayer = player.GetModPlayer<HungerPlayer>();
         
-        if (item.damage > 0)
+        if (item.damage > 0  && item.pick == 0 && item.axe == 0 && item.hammer == 0)
         {
-            modPlayer.hungerChange += 0.5f;
+            modPlayer.weaponCooldown = 60;
+            modPlayer.hungerChange += 1f;
         }
 
         return base.UseItem(item, player);

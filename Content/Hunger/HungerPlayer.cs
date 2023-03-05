@@ -12,6 +12,7 @@ public class HungerPlayer : ModPlayer
     public float hungerChange = 5f;
     
     public int tileMineCooldown = 0;
+    public int weaponCooldown = 0;
 
     private int _timer;
 
@@ -40,6 +41,12 @@ public class HungerPlayer : ModPlayer
             {
                 tileMineCooldown -= 1;
                 hungerChange += 2f;
+            }
+            
+            if (weaponCooldown > 0)
+            {
+                weaponCooldown -= 1;
+                hungerChange += 1f;
             }
             
             
