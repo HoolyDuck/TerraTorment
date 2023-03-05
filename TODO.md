@@ -111,5 +111,10 @@
 - [ ] Add shaders
 - [ ] Refactor code
 - [ ] Balance mechanics
+- [ ] Add config
+- [ ] Add localization
+- [ ] Add mini-wiki
+- [ ] Release first version of mod :)
 
 ## Issues 🪲
+- [ ] Add saving and loading player stats
