@@ -54,7 +54,6 @@ public class HungerPlayer : ModPlayer
             if (hungerDecreaseCooldown <= 0)
             {
                 Hunger -= 1f;
-                Main.NewText($"Current hunger: {Hunger}, hungerChange: {hungerChange}", Color.OrangeRed);
                 hungerDecreaseCooldown = (float)CooldownEnum.HUNGER_DECREASE_COOLDOWN_DEFAULT;
             }
         }
