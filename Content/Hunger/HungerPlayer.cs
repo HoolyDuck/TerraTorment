@@ -10,6 +10,8 @@ public class HungerPlayer : ModPlayer
     public float Hunger = 100;
 
     public float hungerChange = 5f;
+    
+    public int tileMineCooldown = 0;
 
     private int _timer;
 
@@ -32,6 +34,12 @@ public class HungerPlayer : ModPlayer
             if (Player.velocity.Y < 0)
             {
                 hungerChange += 1f;
+            }
+            
+            if (tileMineCooldown > 0)
+            {
+                tileMineCooldown -= 1;
+                hungerChange += 2f;
             }
             
             
