@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TerraTorment.Utilities.Enums;
 
-namespace TerraTorment.Content.Hunger;
+namespace TerraTorment;
 
 public class HungerPlayer : ModPlayer
 {

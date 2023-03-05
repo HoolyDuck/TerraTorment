@@ -1,9 +1,7 @@
-using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using TerraTorment.Content.Hunger;
 
-namespace TerraTorment.Items;
+namespace TerraTorment.Changes;
 
 public class GlobalItemChanges : GlobalItem
 {

@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TerraTorment.Systems;
 
-namespace TerraTorment.Content.Hunger.HungerChanges.ActionChanges;
+namespace TerraTorment.Changes;
 
 public class VanillaFoodChanges : GlobalItem
 {

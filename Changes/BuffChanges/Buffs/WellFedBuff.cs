@@ -1,6 +1,6 @@
 using Terraria.ID;
 
-namespace TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges.Buffs;
+namespace TerraTorment.Changes.BuffChanges.Buffs;
 
 public class WellFedBuff : BuffChange
 {

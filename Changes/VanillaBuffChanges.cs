@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using TerraTorment.Changes.BuffChanges;
 using TerraTorment.Systems;
 
-namespace TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges;
+namespace TerraTorment.Changes;
 
 public class VanillaBuffChanges : GlobalBuff
 {

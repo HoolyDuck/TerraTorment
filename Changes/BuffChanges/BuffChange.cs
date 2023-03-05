@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 using TerraTorment.Systems;
 
-namespace TerraTorment.Content.Hunger.HungerChanges.PassiveChanges.BuffChanges;
+namespace TerraTorment.Changes.BuffChanges;
 
 public abstract class BuffChange : ILoadable
 {
