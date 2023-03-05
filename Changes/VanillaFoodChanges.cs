@@ -25,7 +25,6 @@ public class VanillaFoodChanges : GlobalItem
             case BuffID.WellFed3:
                 modPlayer.Hunger += 15f;
                 break;
- 
         }
 
         //drink changes
@@ -56,10 +55,13 @@ public class VanillaFoodChanges : GlobalItem
                 thirstPlayer.Thirst += 15f;
                 break;
             default:
-                if (item.buffType != 0)
+                if (item.buffType != 0 && item.buffType != BuffID.WellFed3
+                                       && item.buffType != BuffID.WellFed
+                                       && item.buffType != BuffID.WellFed2)
                 {
-                    thirstPlayer.potionThirstCooldown = 300;
+                    thirstPlayer.potionThirstCooldown = 1000;
                 }
+
                 break;
         }
     }
