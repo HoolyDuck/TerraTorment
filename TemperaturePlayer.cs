@@ -55,7 +55,7 @@ public class TemperaturePlayer : ModPlayer
         {
             environmentTemperature = 28f;
         }
-        
+
         if (Player.ZoneMeteor)
         {
             environmentTemperature = 55f;
@@ -93,12 +93,11 @@ public class TemperaturePlayer : ModPlayer
         {
             environmentTemperature -= 15f;
         }
-        
+
         if (Player.ZoneGlowshroom)
         {
             environmentTemperature += 7f;
         }
-
     }
 
     private void UpdateTemperatureBasedOnTime()
@@ -117,33 +116,30 @@ public class TemperaturePlayer : ModPlayer
             environmentTemperature -= 5f;
         }
     }
-    
+
     private void UpdatedTemperatureBasedOnAdjacency()
     {
         // check tiles around player
         for (int i = -3; i < 6; i++)
         {
-            float tempChange = 0;
             for (int j = -3; j < 7; j++)
             {
                 //draw dust box around player only on edges
                 if (i == -3 || i == 5 || j == -3 || j == 6)
-                    Dust.NewDustPerfect(Player.position + new Vector2(i * 16, j * 16), DustID.SpectreStaff, Vector2.Zero, 40, Color.White, 1f);
-    
+                    Dust.NewDustPerfect(Player.position + new Vector2(i * 16, j * 16), DustID.SpectreStaff,
+                        Vector2.Zero, 40, Color.White, 1f);
+
                 // get tile
-                Tile tile = Framing.GetTileSafely(Player.position.ToTileCoordinates().X + i, Player.position.ToTileCoordinates().Y + j);
-                    
+                Tile tile = Framing.GetTileSafely(Player.position.ToTileCoordinates().X + i,
+                    Player.position.ToTileCoordinates().Y + j);
+
                 // check if tile is lava
                 if (tile.LiquidType == LiquidID.Lava)
                 {
                     // the closer the player is to the lava, the more it will affect their temperature
-                    // check for zero division
-                    if (Math.Abs(i) + Math.Abs(j) == 0)
-                        environmentTemperature += 15f;
-                    else environmentTemperature += 15f / (Math.Abs(i) + Math.Abs(j));
+                    environmentTemperature += 15f / Math.Abs(i) + Math.Abs(j) == 0 ? 15f : (Math.Abs(i) + Math.Abs(j));
                 }
             }
         }
-
     }
 }
