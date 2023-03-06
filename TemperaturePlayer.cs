@@ -41,7 +41,9 @@ public class TemperaturePlayer : ModPlayer
         // formula from here
         // https://en.wikipedia.org/wiki/Wind_chill#Australian_apparent_temperature
         // add wind chill later
-        return humidity  * 6.105 * (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) + temperature;
+        return environmentTemperature + 0.33 *
+            humidity  * 6.105 * 
+            (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) - 4;
         
     }
 
