@@ -67,13 +67,27 @@
     - [ ] For using potions
     - [ ] For being in water
     - [ ] For being in lava
+      - [ ] Add temperature for being lavawet
     - [ ] For being in fire
     - [ ] For standing near hot things
+      - [x] For standing near lava
+      - [ ] For standing near fire
+      - [ ] For standing near hot blocks
+      - [ ] For standing near furnaces
+      - [ ] For standing near campfires
     - [ ] For holding cold and hot things
+    - [ ] Wind temperature changes
 - [ ] Add temperature based on thirst
 - [ ] Add temperature based on humidity
 - [ ] Add temperature based on weather
+  - [x] On rain
+    - [ ] Make it better
+    - [ ] Add humidity based if player is under rain
 - [ ] Add temperature based on time of day
+  - [ ] Gradual change of temperature during day
+  - [x] At least working
+- [ ] Wet clothes ????
+- [ ] Player wet after being in water
 - [ ] Draw and add temperature bar ui
      - [ ] Sprite
      - [ ] Bar with temperature value
