@@ -54,12 +54,16 @@
 
 ## Temperature 🌡️
 
-- [ ] Add env temperature
-- [ ] Add player temperature
+- [x] Add env temperature
+- [x] Add player temperature
 - [ ] Add humidity
-- [ ] Add temperature display
+- [x] Add temperature display
 - [ ] Add temperature changes
     - [ ] For being in hot and cold biomes
+      - [ ] For player
+      - [ ] For env
+        - [ ] Gradual change of temperature based on Y position
+        - [x] At least working
     - [ ] For using potions
     - [ ] For being in water
     - [ ] For being in lava
