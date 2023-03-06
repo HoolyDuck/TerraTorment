@@ -56,18 +56,19 @@
 
 - [x] Add env temperature
 - [x] Add player temperature
-- [ ] Add humidity
+- [x] Add humidity
 - [x] Add temperature display
 - [ ] Add temperature changes
     - [ ] For being in hot and cold biomes
-      - [ ] For player
+      - [x] For player
+        - [ ] Adjust the formula
       - [ ] For env
         - [ ] Gradual change of temperature based on Y position
         - [x] At least working
     - [ ] For using potions
     - [ ] For being in water
     - [ ] For being in lava
-      - [ ] Add temperature for being lavawet
+      - [ ] Add temperature change for being lavawet
     - [ ] For being in fire
     - [ ] For standing near hot things
       - [x] For standing near lava
@@ -78,11 +79,12 @@
     - [ ] For holding cold and hot things
     - [ ] Wind temperature changes
 - [ ] Add temperature based on thirst
-- [ ] Add temperature based on humidity
+- [x] Add temperature based on humidity
 - [ ] Add temperature based on weather
   - [x] On rain
     - [ ] Make it better
     - [ ] Add humidity based if player is under rain
+- [ ] Add windchill
 - [ ] Add temperature based on time of day
   - [ ] Gradual change of temperature during day
   - [x] At least working

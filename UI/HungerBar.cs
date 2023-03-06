@@ -12,6 +12,7 @@ public class HungerBar : UIState
     public UIText hungerText;
     public UIText thirstText;
     public UIText envTemperatureText;
+    public UIText playerTemperatureText;
 
     public override void OnInitialize()
     {
@@ -36,7 +37,14 @@ public class HungerBar : UIState
         envTemperatureText.Width.Set(200, 0f);
         envTemperatureText.Height.Set(50, 0f);
         Append(envTemperatureText);
-
+        
+        // move elsewhere later
+        playerTemperatureText = new UIText("Player Temperature: 36.6");
+        playerTemperatureText.Top.Set(110, 0f);
+        playerTemperatureText.Left.Set(0, .7f);
+        playerTemperatureText.Width.Set(200, 0f);
+        playerTemperatureText.Height.Set(50, 0f);
+        Append(playerTemperatureText);
 
     }
     
@@ -49,6 +57,7 @@ public class HungerBar : UIState
         hungerText.SetText($"Hunger: {hungerPlayer.Hunger}, HungerChange: {hungerPlayer.hungerChange}");
         thirstText.SetText($"Thirst: {thirstPlayer.Thirst}, ThirstLoss: {thirstPlayer.ThirstLoss}");
         envTemperatureText.SetText($"Environment Temperature: {temperaturePlayer.environmentTemperature}");
+        playerTemperatureText.SetText($"Player Temperature: {temperaturePlayer.bodyTemperature}, feels like: {temperaturePlayer.modifiedBodyTemperature}");
         
     }
 }

@@ -11,13 +11,40 @@ public class TemperaturePlayer : ModPlayer
     // body temperature 
     public float bodyTemperature = 36.6f;
 
+    public float modifiedBodyTemperature = 36.6f;
+
+    public float temperatureChangeResistance = 0f;
+
     // comfortable default temperature
     public float environmentTemperature = 22f;
+
+    public float envHumidity;
+
 
     public override void ResetEffects()
     {
         environmentTemperature = 22f;
+        envHumidity = .4f;
     }
+
+    public override void PostUpdate()
+    {
+        // "feels like" temperature
+        modifiedBodyTemperature = (float) calculateHeatIndex(environmentTemperature, envHumidity);
+        float difference = modifiedBodyTemperature - bodyTemperature;
+        bodyTemperature += difference / 60f / 45f * (1f - temperatureChangeResistance);
+
+    }
+
+    private double calculateHeatIndex(float temperature, float humidity)
+    {
+        // formula from here
+        // https://en.wikipedia.org/wiki/Wind_chill#Australian_apparent_temperature
+        // add wind chill later
+        return humidity / 100 * 6.105 * (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) + temperature;
+        
+    }
+
 
     public override void PostUpdateMiscEffects()
     {
@@ -34,36 +61,43 @@ public class TemperaturePlayer : ModPlayer
         if (Player.ZoneSnow)
         {
             environmentTemperature = -10f;
+            envHumidity = .03f;
         }
 
         if (Player.ZoneDesert)
         {
             environmentTemperature = 40f;
+            envHumidity = .25f;
         }
 
         if (Player.ZoneJungle)
         {
             environmentTemperature = 30f;
+            envHumidity = .9f;
         }
 
         if (Player.ZoneHallow)
         {
             environmentTemperature = 25f;
+            envHumidity = .5f;
         }
 
         if (Player.ZoneBeach)
         {
             environmentTemperature = 28f;
+            envHumidity = .45f;
         }
 
         if (Player.ZoneMeteor)
         {
             environmentTemperature = 55f;
+            envHumidity = .02f;
         }
 
         if (Player.ZoneUnderworldHeight)
         {
             environmentTemperature = 60f;
+            envHumidity = 0f;
         }
     }
 
@@ -137,7 +171,7 @@ public class TemperaturePlayer : ModPlayer
                 if (tile.LiquidType == LiquidID.Lava)
                 {
                     // the closer the player is to the lava, the more it will affect their temperature
-                    environmentTemperature += 15f / Math.Abs(i) + Math.Abs(j) == 0 ? 15f : (Math.Abs(i) + Math.Abs(j));
+                    environmentTemperature += 15f / (Math.Abs(i) + Math.Abs(j) == 0 ? 15f : (Math.Abs(i) + Math.Abs(j)));
                 }
             }
         }
