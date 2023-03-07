@@ -130,6 +130,8 @@
 - [ ] Add sounds
 - [ ] Add shaders
 - [ ] Refactor code
+  - [ ] Divide IChange interface into smaller ones
+  - [ ] IChange methods to be overridable
 - [ ] Balance mechanics
 - [ ] Add config
 - [ ] Add localization
