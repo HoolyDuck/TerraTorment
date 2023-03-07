@@ -30,6 +30,9 @@ public class TemperaturePlayer : ModPlayer
 
     public override void PostUpdate()
     {
+        envHumidity = Math.Clamp(envHumidity, 0f, 1f);
+        temperatureChangeResistance = Math.Clamp(temperatureChangeResistance, 0f, 1f);
+        modifiedBodyTemperature = Math.Clamp(modifiedBodyTemperature, 30f, 50f);
         // "feels like" temperature
         modifiedBodyTemperature = (float) calculateHeatIndex(environmentTemperature, envHumidity);
         float difference = modifiedBodyTemperature - bodyTemperature;
@@ -45,9 +48,8 @@ public class TemperaturePlayer : ModPlayer
         return environmentTemperature + 0.33 *
             humidity  * 6.105 * 
             (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) - 4;
-        
     }
-
+    
 
     public override void PostUpdateMiscEffects()
     {
