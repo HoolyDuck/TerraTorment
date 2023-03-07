@@ -7,11 +7,24 @@ namespace TerraTorment.Systems;
 
 public class HungerSystem : ModSystem
 {
-    public static List<BuffChange> BuffChanges = new();
+    private static List<BuffChange> BuffChanges;
+    
+    public static void addBuffChange(BuffChange buffChange)
+    {
+        if (BuffChanges == null)
+        {
+            BuffChanges = new List<BuffChange>();
+        }
+        BuffChanges.Add(buffChange);
+    }
+    
+    public static List<BuffChange> getBuffChanges()
+    {
+        return BuffChanges;
+    }
     
     public override void Load()
     {
-
     }
 
 

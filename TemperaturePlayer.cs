@@ -32,7 +32,7 @@ public class TemperaturePlayer : ModPlayer
         // "feels like" temperature
         modifiedBodyTemperature = (float) calculateHeatIndex(environmentTemperature, envHumidity);
         float difference = modifiedBodyTemperature - bodyTemperature;
-        bodyTemperature += difference / 60f / 45f * (1f - temperatureChangeResistance);
+        bodyTemperature += difference / 60f / 1000f * (1f - temperatureChangeResistance);
 
     }
 

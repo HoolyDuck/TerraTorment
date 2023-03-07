@@ -9,7 +9,7 @@ public class VanillaBuffChanges : GlobalBuff
 {
     public override void Update(int type, Player player, ref int buffIndex)
     {
-        foreach (BuffChange buffChange in HungerSystem.BuffChanges) {
+        foreach (BuffChange buffChange in HungerSystem.getBuffChanges()) {
             if (type == buffChange.ActiveBuffId)
             {
                 player.GetModPlayer<HungerPlayer>().hungerChange += buffChange.GetHungerChange;
