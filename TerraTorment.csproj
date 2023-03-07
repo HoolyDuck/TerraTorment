@@ -21,6 +21,5 @@
   <ItemGroup>
     <Folder Include="Changes\ItemChanges\Potions\Food" />
     <Folder Include="Changes\ItemChanges\Potions\RegularPotions" />
-    <Folder Include="Changes\TileChanges" />
   </ItemGroup>
 </Project>
