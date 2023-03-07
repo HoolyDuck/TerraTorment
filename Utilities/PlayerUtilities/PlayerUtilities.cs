@@ -52,4 +52,47 @@ public static class PlayerUtilities
             }
         }
     }
+
+    public static void CheckForEvents(Player player)
+    {
+        if (Main.raining)
+        {
+            if (player.ZoneOverworldHeight)
+            {
+                player.GetModPlayer<TemperaturePlayer>().environmentTemperature -= 5f;
+                player.GetModPlayer<TemperaturePlayer>().envHumidity += .2f;
+            }
+            
+            if (player.ZoneSnow)
+            {
+                player.GetModPlayer<TemperaturePlayer>().environmentTemperature -= 10f;
+                player.GetModPlayer<TemperaturePlayer>().envHumidity += .3f;
+            }
+        }
+        
+        if (Main.snowMoon)
+        {
+            player.GetModPlayer<TemperaturePlayer>().environmentTemperature -= 10f;
+            player.GetModPlayer<TemperaturePlayer>().envHumidity += .2f;
+        }
+        
+        if (Main.eclipse)
+        {
+            player.GetModPlayer<TemperaturePlayer>().environmentTemperature -= 10f;
+        }
+        
+        if (Main.bloodMoon)
+        {
+            player.GetModPlayer<TemperaturePlayer>().environmentTemperature += 6f;
+        }
+
+        if (player.ZoneSandstorm)
+        {
+            player.GetModPlayer<TemperaturePlayer>().envHumidity -= .1f;
+        }
+        
+        
+ 
+
+    }
 }

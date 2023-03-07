@@ -153,11 +153,7 @@ public class TemperaturePlayer : ModPlayer
 
     private void UpdateTemperatureBasedOnWeather()
     {
-        //if raining and player on surface
-        if (Main.raining && Player.ZoneOverworldHeight)
-        {
-            environmentTemperature -= 5f;
-        }
+        PlayerUtilities.CheckForEvents(Player);
     }
 
     private void UpdatedTemperatureBasedOnAdjacency()
