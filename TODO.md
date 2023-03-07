@@ -119,6 +119,7 @@
 
 ## Items 🧸
 - [ ] Add unique effects for all food items and drinks
+  - [x] Add effects for drinks
 - [ ] Change armor items to reflect temperature
 - [ ] Change accessories to reflect temperature
 - [ ] Add new items for new mechanics (idk what yet)
