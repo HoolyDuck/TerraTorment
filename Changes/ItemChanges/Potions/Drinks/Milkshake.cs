@@ -8,7 +8,7 @@ public class Milkshake : PotionChange
     
     public override int ItemId => ItemID.Milkshake;
     
-    public override float GetThirstGain => 10f;
+    public override float GetThirstGain() => 10f;
     
     public override void OnConsumeItem(Item item, Player player)
     {

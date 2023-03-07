@@ -7,7 +7,7 @@ public class AppleJuice : PotionChange
 {
     public override int ItemId => ItemID.AppleJuice;
     
-    public override float GetThirstGain => 5f;
+    public override float GetThirstGain() => 5f;
 
     public override void OnConsumeItem(Item item, Player player)
     {

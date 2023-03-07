@@ -8,7 +8,7 @@ public class Ale : PotionChange
     
     public override int ItemId => ItemID.Ale;
     
-    public override float GetThirstGain => 3f;
+    public override float GetThirstGain() => 3f;
     
     
 }

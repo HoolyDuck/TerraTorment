@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TerraTorment.Utilities.PlayerUtilities;
 
 namespace TerraTorment;
 
@@ -29,6 +30,9 @@ public class TemperaturePlayer : ModPlayer
 
     public override void PostUpdate()
     {
+        envHumidity = Math.Clamp(envHumidity, 0f, 1f);
+        temperatureChangeResistance = Math.Clamp(temperatureChangeResistance, 0f, 1f);
+        modifiedBodyTemperature = Math.Clamp(modifiedBodyTemperature, 30f, 50f);
         // "feels like" temperature
         modifiedBodyTemperature = (float) calculateHeatIndex(environmentTemperature, envHumidity);
         float difference = modifiedBodyTemperature - bodyTemperature;
@@ -44,9 +48,8 @@ public class TemperaturePlayer : ModPlayer
         return environmentTemperature + 0.33 *
             humidity  * 6.105 * 
             (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) - 4;
-        
     }
-
+    
 
     public override void PostUpdateMiscEffects()
     {
@@ -134,48 +137,29 @@ public class TemperaturePlayer : ModPlayer
         {
             environmentTemperature += 7f;
         }
+
+        if (Player.ZoneNormalSpace)
+        {
+            environmentTemperature -= 15f;
+        }
     }
 
     private void UpdateTemperatureBasedOnTime()
     {
-        if (!Main.dayTime)
+        if (!Main.dayTime && Player.ZoneOverworldHeight)
         {
             environmentTemperature -= 6f;
         }
+        
     }
 
     private void UpdateTemperatureBasedOnWeather()
     {
-        //if raining and player on surface
-        if (Main.raining && Player.ZoneOverworldHeight)
-        {
-            environmentTemperature -= 5f;
-        }
+        PlayerUtilities.CheckForEvents(Player);
     }
 
     private void UpdatedTemperatureBasedOnAdjacency()
     {
-        // check tiles around player
-        for (int i = -3; i < 6; i++)
-        {
-            for (int j = -3; j < 7; j++)
-            {
-                //draw dust box around player only on edges
-                if (i == -3 || i == 5 || j == -3 || j == 6)
-                    Dust.NewDustPerfect(Player.position + new Vector2(i * 16, j * 16), DustID.SpectreStaff,
-                        Vector2.Zero, 40, Color.White, 1f);
-
-                // get tile
-                Tile tile = Framing.GetTileSafely(Player.position.ToTileCoordinates().X + i,
-                    Player.position.ToTileCoordinates().Y + j);
-
-                // check if tile is lava
-                if (tile.LiquidType == LiquidID.Lava)
-                {
-                    // the closer the player is to the lava, the more it will affect their temperature
-                    environmentTemperature += 15f / (Math.Abs(i) + Math.Abs(j) == 0 ? 15f : (Math.Abs(i) + Math.Abs(j)));
-                }
-            }
-        }
+        PlayerUtilities.CheckForLavaAround(-3, 6, -3, 7, Player);
     }
 }

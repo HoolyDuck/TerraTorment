@@ -8,8 +8,8 @@ public abstract class PotionChange : ItemChange
     {
         if (ItemId == item.type)
         {
-            player.GetModPlayer<HungerPlayer>().Hunger += GetHungerGain;
-            player.GetModPlayer<ThirstPlayer>().Thirst += GetThirstGain;
+            player.GetModPlayer<HungerPlayer>().Hunger += GetHungerGain();
+            player.GetModPlayer<ThirstPlayer>().Thirst += GetThirstGain();
         }
     }
     

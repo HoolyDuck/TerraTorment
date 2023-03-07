@@ -83,7 +83,14 @@
 - [ ] Add temperature based on weather
   - [x] On rain
     - [ ] Make it better
-    - [ ] Add humidity based if player is under rain
+    - [ ] Add humidity based on rain intensity
+    - [ ] Add check if player is under rain
+    - [x] Add humidity on rain
+  - [x] On snow
+  - [x] On sandstorm
+  - [x] On eclipse
+  - [x] On blood moon
+  - [x] On snow moon
 - [ ] Add windchill
 - [ ] Add temperature based on time of day
   - [ ] Gradual change of temperature during day
@@ -141,3 +148,4 @@
 
 ## Issues 🪲
 - [ ] Add saving and loading player stats
+- [ ] Investigate body temperature formula (lava billion deg in caves)
