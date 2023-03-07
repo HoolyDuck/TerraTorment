@@ -17,15 +17,10 @@ public class VanillaFoodChanges : GlobalItem
         //drink changes
         switch (item.type)
         {
-            case ItemID.BloodyMoscato:
             case ItemID.BottledWater:
-            case ItemID.FruitJuice:
             case ItemID.BananaDaiquiri:
-            case ItemID.Lemonade:
             case ItemID.PeachSangria:
             case ItemID.PinaColada:
-            case ItemID.SmoothieofDarkness:
-            case ItemID.TropicalSmoothie:
             case ItemID.Teacup:
             case ItemID.MilkCarton:
             case ItemID.Ale:
