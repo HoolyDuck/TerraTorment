@@ -3,10 +3,10 @@ using Terraria.ID;
 
 namespace TerraTorment.Changes.ItemChanges.Potions.Drinks;
 
-public class TropicalSmoothie : PotionChange
+public class PinaColada : PotionChange
 {
     
-    public override int ItemId => ItemID.TropicalSmoothie;
+    public override int ItemId => ItemID.PinaColada;
     
     public override float GetThirstGain => 6f;
     
@@ -19,6 +19,7 @@ public class TropicalSmoothie : PotionChange
     
     private void AddEffects(Player player)
     {
-        player.AddBuff(BuffID.DryadsWard, 3600 / 2);
+        player.AddBuff(BuffID.Crate, 3600);
+        player.AddBuff(BuffID.Fishing, 3600);
     }
 }

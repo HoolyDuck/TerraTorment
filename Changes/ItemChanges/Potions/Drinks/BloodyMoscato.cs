@@ -8,10 +8,11 @@ public class BloodyMoscato : PotionChange
     
     public override int ItemId => ItemID.BloodyMoscato;
     
-    public override float GetThirstGain => 6f;
+    public override float GetThirstGain => 5f;
     
     public override void OnConsumeItem(Item item, Player player)
     {
+        if (ItemId != item.type) return;
         base.OnConsumeItem(item, player);
         AddEffects(player);
     }

@@ -11,6 +11,8 @@ public class AppleJuice : PotionChange
 
     public override void OnConsumeItem(Item item, Player player)
     {
+        if (ItemId != item.type) return;
+        
         base.OnConsumeItem(item, player);
         AddEffects(player);
     }

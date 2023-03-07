@@ -12,6 +12,8 @@ public abstract class PotionChange : ItemChange
             player.GetModPlayer<ThirstPlayer>().Thirst += GetThirstGain;
         }
     }
+    
+
 
 
 }
