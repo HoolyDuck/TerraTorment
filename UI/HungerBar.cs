@@ -54,7 +54,7 @@ public class HungerBar : UIState
         var hungerPlayer = Main.LocalPlayer.GetModPlayer<HungerPlayer>();
         var thirstPlayer = Main.LocalPlayer.GetModPlayer<ThirstPlayer>();
         var temperaturePlayer = Main.LocalPlayer.GetModPlayer<TemperaturePlayer>();
-        hungerText.SetText($"Hunger: {hungerPlayer.Hunger}, HungerChange: {hungerPlayer.hungerChange}");
+        hungerText.SetText($"Hunger: {hungerPlayer.Hunger}, HungerChange: {hungerPlayer.HungerLoss}");
         thirstText.SetText($"Thirst: {thirstPlayer.Thirst}, ThirstLoss: {thirstPlayer.ThirstLoss}");
         envTemperatureText.SetText($"Environment Temperature: {temperaturePlayer.environmentTemperature}");
         playerTemperatureText.SetText($"Player Temperature: {temperaturePlayer.bodyTemperature}, feels like: {temperaturePlayer.modifiedBodyTemperature}");

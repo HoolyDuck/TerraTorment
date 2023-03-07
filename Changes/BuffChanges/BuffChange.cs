@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace TerraTorment.Changes.BuffChanges;
 
-public class BuffChange : GlobalBuff, IChange
+public abstract class BuffChange : GlobalBuff, IChange
 {
     
     public virtual int ActiveBuffId => -1;
@@ -20,7 +20,7 @@ public class BuffChange : GlobalBuff, IChange
     {
         if (type == ActiveBuffId)
         {
-            player.GetModPlayer<HungerPlayer>().hungerChange += GetHungerChange;
+            player.GetModPlayer<HungerPlayer>().HungerLoss += GetHungerChange;
             player.GetModPlayer<ThirstPlayer>().ThirstLoss += GetThirstChange;
             player.GetModPlayer<TemperaturePlayer>().environmentTemperature += GetTemperatureChange;
             player.GetModPlayer<TemperaturePlayer>().envHumidity += GetHumidityChange;
