@@ -2,15 +2,15 @@ namespace TerraTorment.Changes;
 
 public interface IChange
 {
-    public float GetHungerChange => 0f;
+    public float GetHungerChange();
     
-    public float GetHungerGain => 0f;
+    public float GetHungerGain();
 
-    public float GetThirstChange => 0f;
+    public float GetThirstChange ();
     
-    public float GetThirstGain => 0f;
+    public float GetThirstGain ();
 
-    public float GetTemperatureChange => 0f;
+    public float GetTemperatureChange ();
 
-    public float GetHumidityChange => 0f;
+    public float GetHumidityChange ();
 }

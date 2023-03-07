@@ -6,5 +6,5 @@ public class WeakDebuff : BuffChange
 {
     public override int ActiveBuffId => BuffID.Weak;
 
-    public override float GetHungerChange => 1.5f;
+    public override float GetHungerChange() => 1.5f;
 }

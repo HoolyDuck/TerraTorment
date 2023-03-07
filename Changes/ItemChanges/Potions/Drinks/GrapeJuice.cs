@@ -9,7 +9,7 @@ public class GrapeJuice : PotionChange
     
     public override int ItemId => ItemID.GrapeJuice;
     
-    public override float GetThirstGain => 10f;
+    public override float GetThirstGain() => 10f;
     
     public override void OnConsumeItem(Item item, Player player)
     {
