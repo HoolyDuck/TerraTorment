@@ -8,17 +8,14 @@ namespace TerraTorment;
 public class HungerPlayer : ModPlayer
 {
     public float Hunger = 100;
-
-    public float hungerChange = 5f;
+    public float HungerLoss = 5f;
     
     public int tileMineCooldown = 0;
     public int weaponCooldown = 0;
 
-    private int _timer;
-
     public override void ResetEffects()
     {
-         hungerChange = 5f;
+         HungerLoss = 5f;
     }
 
 
@@ -29,28 +26,28 @@ public class HungerPlayer : ModPlayer
         {
             if (Player.velocity.X != 0)
             {
-                hungerChange += 0.5f;
+                HungerLoss += 0.5f;
             }
 
             if (Player.velocity.Y < 0)
             {
-                hungerChange += 1f;
+                HungerLoss += 1f;
             }
             
             if (tileMineCooldown > 0)
             {
                 tileMineCooldown -= 1;
-                hungerChange += 2f;
+                HungerLoss += 2f;
             }
             
             if (weaponCooldown > 0)
             {
                 weaponCooldown -= 1;
-                hungerChange += 1f;
+                HungerLoss += 1f;
             }
             
             
-            hungerDecreaseCooldown -= hungerChange;
+            hungerDecreaseCooldown -= HungerLoss;
             if (hungerDecreaseCooldown <= 0)
             {
                 Hunger -= 1f;

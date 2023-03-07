@@ -13,56 +13,12 @@ public class VanillaFoodChanges : GlobalItem
         HungerPlayer modPlayer = player.GetModPlayer<HungerPlayer>();
         ThirstPlayer thirstPlayer = player.GetModPlayer<ThirstPlayer>();
 
-        //hunger changes
-        switch (item.buffType)
-        {
-            case BuffID.WellFed:
-                modPlayer.Hunger += 5f;
-                break;
-            case BuffID.WellFed2:
-                modPlayer.Hunger += 10f;
-                break;
-            case BuffID.WellFed3:
-                modPlayer.Hunger += 15f;
-                break;
-        }
 
-        //drink changes
-        switch (item.type)
+        if (item.buffType != 0 && item.buffType != BuffID.WellFed3
+                               && item.buffType != BuffID.WellFed
+                               && item.buffType != BuffID.WellFed2)
         {
-            case ItemID.AppleJuice:
-            case ItemID.BloodyMoscato:
-            case ItemID.BottledWater:
-            case ItemID.FruitJuice:
-            case ItemID.BananaDaiquiri:
-            case ItemID.Lemonade:
-            case ItemID.PeachSangria:
-            case ItemID.PinaColada:
-            case ItemID.SmoothieofDarkness:
-            case ItemID.TropicalSmoothie:
-            case ItemID.Teacup:
-            case ItemID.MilkCarton:
-            case ItemID.Ale:
-            case ItemID.Sake:
-                thirstPlayer.Thirst += 5f;
-                break;
-            case ItemID.CoffeeCup:
-            case ItemID.CreamSoda:
-                thirstPlayer.Thirst += 10f;
-                break;
-            case ItemID.GrapeJuice:
-            case ItemID.Milkshake:
-                thirstPlayer.Thirst += 15f;
-                break;
-            default:
-                if (item.buffType != 0 && item.buffType != BuffID.WellFed3
-                                       && item.buffType != BuffID.WellFed
-                                       && item.buffType != BuffID.WellFed2)
-                {
-                    thirstPlayer.potionThirstCooldown = 1000;
-                }
-
-                break;
+            thirstPlayer.potionThirstCooldown = 1000;
         }
     }
 
