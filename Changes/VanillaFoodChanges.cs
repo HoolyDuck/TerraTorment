@@ -12,25 +12,11 @@ public class VanillaFoodChanges : GlobalItem
         base.OnConsumeItem(item, player);
         HungerPlayer modPlayer = player.GetModPlayer<HungerPlayer>();
         ThirstPlayer thirstPlayer = player.GetModPlayer<ThirstPlayer>();
-
-        //hunger changes
-        switch (item.buffType)
-        {
-            case BuffID.WellFed:
-                modPlayer.Hunger += 5f;
-                break;
-            case BuffID.WellFed2:
-                modPlayer.Hunger += 10f;
-                break;
-            case BuffID.WellFed3:
-                modPlayer.Hunger += 15f;
-                break;
-        }
+        
 
         //drink changes
         switch (item.type)
         {
-            case ItemID.AppleJuice:
             case ItemID.BloodyMoscato:
             case ItemID.BottledWater:
             case ItemID.FruitJuice:
