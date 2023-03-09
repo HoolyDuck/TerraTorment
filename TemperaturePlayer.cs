@@ -175,5 +175,6 @@ public class TemperaturePlayer : ModPlayer
     private void UpdatedTemperatureBasedOnAdjacency()
     {
         PlayerUtilities.CheckForLavaAround(-10, 12, -13, 10, Player);
+        PlayerUtilities.CheckForTilesAround(-4, 4, -4, 4, Player);
     }
 }

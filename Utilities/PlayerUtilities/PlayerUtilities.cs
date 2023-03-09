@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using TerraTorment.Utilities;
+using TerraTorment.Utilities.Lists;
 
 
 namespace TerraTorment.Utilities.PlayerUtilities;
@@ -48,6 +49,40 @@ public static class PlayerUtilities
 
                     player.GetModPlayer<TemperaturePlayer>().environmentTemperature +=
                         10f / distance;
+                }
+            }
+        }
+    }
+    
+    public static void CheckForTilesAround(
+        int left,
+        int right,
+        int top,
+        int bottom,
+        Player player)
+    {
+        // Look around the player
+        for (int i = left; i < right; i++)
+        {
+            for (int j = top; j < bottom; j++)
+            {
+                // Get tile
+                Tile tile = Framing.GetTileSafely(player.position.ToTileCoordinates().X + i,
+                    player.position.ToTileCoordinates().Y + j);
+
+                foreach (var tileTemperatureChange in TileProximityChanges.tileProximityTemperatureChanges)
+                {
+                    // If tile is lava, increase temperature based on distance to lava tile
+                    if (tile.TileType == tileTemperatureChange.Key)
+                    {
+                        float distance =
+                            MathUtilities.MathUtilities.DistanceToPlayer(i, j) == 0
+                                ? 1
+                                : MathUtilities.MathUtilities.DistanceToPlayer(i, j);
+
+                        player.GetModPlayer<TemperaturePlayer>().environmentTemperature +=
+                            tileTemperatureChange.Value / distance;
+                    }
                 }
             }
         }

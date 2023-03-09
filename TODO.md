@@ -72,9 +72,9 @@
     - [ ] For being in fire
     - [ ] For standing near hot things
       - [x] For standing near lava
-      - [ ] For standing near fire
-      - [ ] For standing near hot blocks
-      - [ ] For standing near furnaces
+      - [x] For standing near fire
+      - [x] For standing near hot blocks
+      - [x] For standing near furnaces
       - [ ] For standing near campfires
     - [ ] For holding cold and hot things
     - [x] Wind temperature changes
@@ -91,7 +91,7 @@
   - [x] On eclipse
   - [x] On blood moon
   - [x] On snow moon
-- [ ] Add windchill
+- [x] Add windchill
 - [ ] Add temperature based on time of day
   - [ ] Gradual change of temperature during day
   - [x] At least working
