@@ -77,7 +77,7 @@
       - [ ] For standing near furnaces
       - [ ] For standing near campfires
     - [ ] For holding cold and hot things
-    - [ ] Wind temperature changes
+    - [x] Wind temperature changes
 - [ ] Add temperature based on thirst
 - [x] Add temperature based on humidity
 - [ ] Add temperature based on weather
