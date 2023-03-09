@@ -33,6 +33,9 @@ public class TemperaturePlayer : ModPlayer
     public override void PostUpdate()
     {
         envHumidity = Math.Clamp(envHumidity, 0f, 1f);
+        // if it's too hot, humidity is 0
+        if (environmentTemperature >= 100) envHumidity = 0f;
+        
         windSpeed = Math.Clamp(Main.windSpeedCurrent, -30f, 30f);
         bool isOverworldOutside = Player.ZoneOverworldHeight && !Player.behindBackWall;
 
