@@ -16,6 +16,8 @@ public class TemperaturePlayer : ModPlayer
 
     public float temperatureChangeResistance = 0f;
 
+    public float windSpeed;
+
     // comfortable default temperature
     public float environmentTemperature = 22f;
 
@@ -31,25 +33,33 @@ public class TemperaturePlayer : ModPlayer
     public override void PostUpdate()
     {
         envHumidity = Math.Clamp(envHumidity, 0f, 1f);
+        // if it's too hot, humidity is 0
+        if (environmentTemperature >= 100) envHumidity = 0f;
+        
+        windSpeed = Math.Clamp(Main.windSpeedCurrent, -30f, 30f);
+        bool isOverworldOutside = Player.ZoneOverworldHeight && !Player.behindBackWall;
+
         temperatureChangeResistance = Math.Clamp(temperatureChangeResistance, 0f, 1f);
         modifiedBodyTemperature = Math.Clamp(modifiedBodyTemperature, 30f, 50f);
         // "feels like" temperature
-        modifiedBodyTemperature = (float) calculateHeatIndex(environmentTemperature, envHumidity);
+        modifiedBodyTemperature = (float)calculateHeatIndex(
+            environmentTemperature,
+            envHumidity
+            , isOverworldOutside ? windSpeed : 0f);
         float difference = modifiedBodyTemperature - bodyTemperature;
         bodyTemperature += difference / 60f / 1000f * (1f - temperatureChangeResistance);
-
     }
 
-    private double calculateHeatIndex(float temperature, float humidity)
+    private double calculateHeatIndex(float temperature, float humidity, float windSpeed)
     {
         // formula from here
         // https://en.wikipedia.org/wiki/Wind_chill#Australian_apparent_temperature
         // add wind chill later
         return environmentTemperature + 0.33 *
-            humidity  * 6.105 * 
-            (float) Math.Exp(17.27 * temperature / (237.7 + temperature)) - 4;
+            humidity * 6.105 *
+            (float)Math.Exp(17.27 * temperature / (237.7 + temperature)) - Math.Abs(0.7f * windSpeed) - 4;
     }
-    
+
 
     public override void PostUpdateMiscEffects()
     {
@@ -58,6 +68,11 @@ public class TemperaturePlayer : ModPlayer
         UpdateTemperatureBasedOnTime();
         UpdateTemperatureBasedOnWeather();
         UpdatedTemperatureBasedOnAdjacency();
+
+        if (Player.lavaWet)
+        {
+            environmentTemperature += 700;
+        }
     }
 
     private void UpdateTemperatureBasedOnBiome()
@@ -150,7 +165,6 @@ public class TemperaturePlayer : ModPlayer
         {
             environmentTemperature -= 6f;
         }
-        
     }
 
     private void UpdateTemperatureBasedOnWeather()
@@ -160,6 +174,7 @@ public class TemperaturePlayer : ModPlayer
 
     private void UpdatedTemperatureBasedOnAdjacency()
     {
-        PlayerUtilities.CheckForLavaAround(-3, 6, -3, 7, Player);
+        PlayerUtilities.CheckForLavaAround(-10, 12, -13, 10, Player);
+        PlayerUtilities.CheckForTilesAround(-4, 4, -4, 4, Player);
     }
 }
