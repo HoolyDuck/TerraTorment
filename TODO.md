@@ -67,8 +67,8 @@
         - [x] At least working
     - [ ] For using potions
     - [ ] For being in water
-    - [ ] For being in lava
-      - [ ] Add temperature change for being lavawet
+    - [x] For being in lava
+      - [x] Add temperature change for being lavawet
     - [ ] For being in fire
     - [ ] For standing near hot things
       - [x] For standing near lava

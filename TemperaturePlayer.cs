@@ -68,6 +68,11 @@ public class TemperaturePlayer : ModPlayer
         UpdateTemperatureBasedOnTime();
         UpdateTemperatureBasedOnWeather();
         UpdatedTemperatureBasedOnAdjacency();
+
+        if (Player.lavaWet)
+        {
+            environmentTemperature += 700;
+        }
     }
 
     private void UpdateTemperatureBasedOnBiome()
@@ -169,6 +174,6 @@ public class TemperaturePlayer : ModPlayer
 
     private void UpdatedTemperatureBasedOnAdjacency()
     {
-        PlayerUtilities.CheckForLavaAround(-3, 6, -3, 7, Player);
+        PlayerUtilities.CheckForLavaAround(-10, 12, -13, 10, Player);
     }
 }

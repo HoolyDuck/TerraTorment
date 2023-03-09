@@ -47,7 +47,7 @@ public static class PlayerUtilities
                             : MathUtilities.MathUtilities.DistanceToPlayer(i, j);
 
                     player.GetModPlayer<TemperaturePlayer>().environmentTemperature +=
-                        15f / distance;
+                        10f / distance;
                 }
             }
         }
