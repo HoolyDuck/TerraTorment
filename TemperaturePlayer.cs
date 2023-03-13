@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TerraTorment.Utilities.PlayerUtilities;
@@ -73,6 +74,33 @@ public class TemperaturePlayer : ModPlayer
         {
             environmentTemperature += 700;
         }
+        
+        if (bodyTemperature >= 39f)
+        {
+            Player.AddBuff(BuffID.Wet, 2); //rework with sweaty debuff later
+            
+            if (bodyTemperature >= 42f)
+            {
+                Player.AddBuff(BuffID.Burning, 2); //rework with heatstroke debuff later
+            }
+        }
+        
+        if (bodyTemperature <= 34f)
+        {
+            Player.AddBuff(BuffID.Chilled, 2); //rework with shiver debuff later
+            
+            if (bodyTemperature <= 32f)
+            {
+                Player.AddBuff(BuffID.Frozen, 2); //rework with hypothermia debuff later
+                
+                if (bodyTemperature <= 30f)
+                {
+                   Player.KillMe(new PlayerDeathReason(), 1000, 0);
+                }
+            }
+        }
+        
+        
     }
 
     private void UpdateTemperatureBasedOnBiome()

@@ -102,6 +102,7 @@
      - [ ] Bar with temperature value
      - [ ] Items for showing temperature
 - [ ] Add negative effects when too hot or too cold
+    - [x] Vanilla debuffs
     - [ ] Shiver
     - [ ] Sweating
     - [ ] Hypothermia
